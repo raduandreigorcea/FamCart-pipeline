@@ -43,7 +43,7 @@ const EMOJI_RULES = [
 
   // ─── Dairy & eggs ──────────────────────────────────────────────────────────
   { emoji: '🥚', keywords: ['ou', 'oua', 'egg', 'eggs'] },
-  { emoji: '🥛', keywords: ['lapte', 'milk', 'iaurt', 'yogurt', 'yoghurt', 'chefir', 'kefir', 'sana', 'lapte batut'] },
+  { emoji: '🥛', keywords: ['lapte', 'milk', 'iaurt', 'yogurt', 'yoghurt', 'chefir', 'kefir', 'sana', 'lapte batut', 'skyr'] },
   { emoji: '🧀', keywords: ['branza', 'cascaval', 'telemea', 'cheese', 'mozzarella', 'parmezan', 'parmesan', 'gouda', 'cheddar', 'emmental', 'feta', 'ricotta', 'burduf', 'brie', 'camembert', 'urda'] },
   { emoji: '🧈', keywords: ['unt', 'butter', 'margarina', 'margarine'] },
 
@@ -92,7 +92,7 @@ const EMOJI_RULES = [
   { emoji: '🍚', keywords: ['orez', 'rice', 'risotto', 'cous cous', 'quinoa', 'bulgur'] },
   { emoji: '🫓', keywords: ['faina', 'flour', 'malai', 'cornmeal', 'gris', 'semolina'] },
   { emoji: '🥣', keywords: ['cereale', 'cereal', 'cornflakes', 'corn flakes', 'oat', 'ovaz', 'fulgi', 'musli', 'muesli', 'granola', 'terci', 'porridge', 'maioneza', 'mayo', 'mayonnaise', 'sos', 'sauce', 'dressing'] },
-  { emoji: '🫘', keywords: ['fasole', 'beans', 'linte', 'lentils', 'naut', 'chickpeas', 'mazare', 'peas'] },
+  { emoji: '🫘', keywords: ['fasole', 'beans', 'linte', 'lentils', 'naut', 'chickpeas', 'mazare', 'peas', 'tofu', 'chickpea'] },
   { emoji: '🥫', keywords: ['conserva', 'conserve', 'canned', 'borcan', 'jar', 'pate', 'zacusca', 'compot'] },
 
   // ─── Vegetables ────────────────────────────────────────────────────────────
@@ -133,7 +133,7 @@ const EMOJI_RULES = [
   { emoji: '🥤', keywords: ['cola', 'fanta', 'sprite', 'soda', 'soft drink', 'pepsi', 'bautura carbogazoasa', 'ice tea', 'iced tea', 'ice tea piersici', 'ice tea lamaie', 'ice tea de piersici'] },
   { emoji: '⚡', keywords: ['energizant', 'energizanta', 'energy drink', 'red bull'] },
   { emoji: '☕', keywords: ['cafea', 'coffee', 'espresso', 'cappuccino', 'latte', 'nescafe'] },
-  { emoji: '🍵', keywords: ['ceai', 'tea', 'matcha', 'musetel', 'chamomile', 'ceai de menta', 'ceai de fructe de padure'] },
+  { emoji: '🍵', keywords: ['ceai', 'tea', 'matcha', 'musetel', 'chamomile', 'ceai de menta', 'ceai de fructe de padure', 'earl grey', 'lady grey'] },
   { emoji: '🍺', keywords: ['bere', 'beer', 'lager', 'pilsner'] },
   { emoji: '🍷', keywords: ['vin', 'wine', 'merlot', 'cabernet', 'sauvignon'] },
   { emoji: '🥂', keywords: ['prosecco', 'sampanie', 'champagne', 'cava'] },

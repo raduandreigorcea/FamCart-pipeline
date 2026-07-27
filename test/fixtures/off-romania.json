@@ -1,0 +1,927 @@
+[
+  {
+    "code": "5202178040047",
+    "product_name": "Suc din fructe si legume grecesti",
+    "product_name_ro": "Suc din fructe si legume grecesti",
+    "brands": "Olympus",
+    "quantity": "1 l",
+    "lang": "ro",
+    "countries_tags": [
+      "en:france",
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:plant-based-foods-and-beverages",
+      "en:beverages",
+      "en:plant-based-beverages",
+      "en:fruit-based-beverages",
+      "en:juices-and-nectars",
+      "en:fruit-juices"
+    ],
+    "unique_scans_n": 16,
+    "completeness": 0.9
+  },
+  {
+    "code": "5942045380370",
+    "product_name": "Tuborg Ice",
+    "product_name_ro": "Tuborg Ice",
+    "brands": "Tuborg",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:beverages-and-beverages-preparations",
+      "en:beverages",
+      "en:alcoholic-beverages",
+      "en:carbonated-drinks",
+      "en:sodas"
+    ],
+    "completeness": 0.575
+  },
+  {
+    "code": "5941065009919",
+    "product_name": "Bio chefir",
+    "product_name_ro": "Bio Chefir 3,5% grăsime",
+    "brands": "Napolact",
+    "quantity": "330 g",
+    "lang": "fr",
+    "countries_tags": [
+      "en:france",
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:dairies",
+      "en:fermented-foods",
+      "en:fermented-milk-products",
+      "en:desserts",
+      "en:dairy-desserts",
+      "en:fermented-dairy-desserts"
+    ],
+    "unique_scans_n": 4,
+    "completeness": 0.775
+  },
+  {
+    "code": "5948935004548",
+    "product_name": "Sammills Tortilla Chips - Gesalzen",
+    "product_name_en": "Tortillia Chips lightly salted",
+    "brands": "SamMills",
+    "quantity": "125 g",
+    "lang": "fr",
+    "countries_tags": [
+      "en:france",
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:salty-snacks",
+      "en:appetizers",
+      "en:chips-and-fries",
+      "en:crisps",
+      "en:corn-chips"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.775
+  },
+  {
+    "code": "8007950013717",
+    "product_name": "Bock rossa",
+    "brands": "Poretti,Angelo Poretti,Carlsberg",
+    "quantity": "330 mL",
+    "lang": "it",
+    "countries_tags": [
+      "en:italy",
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:beverages",
+      "en:alcoholic-beverages",
+      "en:beers"
+    ],
+    "completeness": 0.5625
+  },
+  {
+    "code": "5400113582946",
+    "product_name": "Saucisses apéro",
+    "generic_name": "Saucisses de poulet et de porc",
+    "brands": "Delhaize",
+    "quantity": "400 g",
+    "lang": "fr",
+    "countries_tags": [
+      "en:belgium",
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:meats-and-their-products",
+      "en:meats",
+      "en:prepared-meats",
+      "en:sausages",
+      "fr:saucisses-cocktail"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.7875
+  },
+  {
+    "code": "5941355000688",
+    "product_name": "Lapte integral 3,5%",
+    "product_name_ro": "Lapte integral 3,5%",
+    "generic_name": "Lapte integral 3,5% grăsime",
+    "brands": "Zuzu",
+    "quantity": "1 l",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:dairies",
+      "en:milks",
+      "en:whole-milks",
+      "en:cow-milks"
+    ],
+    "unique_scans_n": 64,
+    "completeness": 0.6875
+  },
+  {
+    "code": "5941021022631",
+    "product_name": "White chocolate",
+    "brands": "Heidi",
+    "lang": "fr",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:sweet-snacks",
+      "en:cocoa-and-its-products",
+      "en:chocolates",
+      "en:white-chocolates"
+    ],
+    "completeness": 0.475
+  },
+  {
+    "code": "5941021022624",
+    "product_name": "Milk chocolate",
+    "brands": "Heidi",
+    "lang": "fr",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:sweet-snacks",
+      "en:cocoa-and-its-products",
+      "en:chocolates",
+      "en:milk-chocolates"
+    ],
+    "unique_scans_n": 2,
+    "completeness": 0.475
+  },
+  {
+    "code": "4000415700805",
+    "product_name": "Schogetten originals: Skyr",
+    "product_name_ro": "Schogetten originals: Skyr",
+    "brands": "Schogetten",
+    "quantity": "100 g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:sweet-snacks",
+      "en:cocoa-and-its-products",
+      "en:chocolates",
+      "en:milk-chocolates"
+    ],
+    "unique_scans_n": 4,
+    "completeness": 0.7875
+  },
+  {
+    "code": "5941882803400",
+    "product_name": "SanoVita Tofu natur",
+    "product_name_ro": "SanoVita Tofu natur",
+    "generic_name": "SanoVita Tofu natur, 200g,",
+    "brands": "SanoVita",
+    "quantity": "200 g,",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:legumes-and-their-products",
+      "en:meat-alternatives",
+      "en:meat-analogues",
+      "en:tofu"
+    ],
+    "unique_scans_n": 2,
+    "completeness": 0.7875
+  },
+  {
+    "code": "5201704065103",
+    "product_name": "Hercules high protein greek yogurt",
+    "product_name_en": "Hercules high protein greek yogurt",
+    "brands": "Kolios",
+    "lang": "en",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [],
+    "completeness": 0.3
+  },
+  {
+    "code": "5941484001549",
+    "product_name": "Bulion",
+    "product_name_ro": "Bulion",
+    "brands": "Sultan",
+    "quantity": "310g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
+      "en:vegetables-based-foods",
+      "en:tomatoes-and-their-products",
+      "en:tomato-pastes"
+    ],
+    "unique_scans_n": 5,
+    "completeness": 0.9
+  },
+  {
+    "code": "8993351129402",
+    "product_name": "Skimmed Milk",
+    "product_name_en": "Skimmed Milk",
+    "brands": "Greenfields",
+    "quantity": "1 l",
+    "lang": "en",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:dairies",
+      "en:milks",
+      "en:homogenized-milks",
+      "en:uht-milks",
+      "en:skimmed-milks",
+      "en:uht-skimmed-milks"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.775
+  },
+  {
+    "code": "5941047829993",
+    "product_name": "chocolata amaruie 80%cacao",
+    "lang": "es",
+    "countries_tags": [
+      "en:france",
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:sweet-snacks",
+      "en:cocoa-and-its-products",
+      "en:chocolates",
+      "en:dark-chocolates"
+    ],
+    "unique_scans_n": 73,
+    "completeness": 0.475
+  },
+  {
+    "code": "0070177189365",
+    "product_name": "Tea Lady Grey",
+    "product_name_ro": "Tea Lady Grey",
+    "brands": "Twinings",
+    "quantity": "100 g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania",
+      "en:spain"
+    ],
+    "categories_tags": [
+      "en:plant-based-foods-and-beverages",
+      "en:beverages",
+      "en:hot-beverages",
+      "en:plant-based-beverages",
+      "en:teas",
+      "en:herbal-teas"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.6875
+  },
+  {
+    "code": "8410095506417",
+    "product_name": "Mermelada extra de Albaricoque",
+    "brands": "Auchan",
+    "quantity": "350 g",
+    "lang": "fr",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:breakfasts",
+      "en:spreads",
+      "en:plant-based-spreads",
+      "en:sweet-spreads"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.575
+  },
+  {
+    "code": "7501058651280",
+    "product_name": "CarlosV cereal",
+    "brands": "Nestlé",
+    "quantity": "1465 kg",
+    "lang": "es",
+    "countries_tags": [
+      "en:mexico",
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:breakfasts",
+      "en:cereals-and-potatoes",
+      "en:cereals-and-their-products",
+      "en:breakfast-cereals"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.6875
+  },
+  {
+    "code": "7503023299046",
+    "product_name": "Doradita multicereal de linaza",
+    "brands": "Martany",
+    "quantity": "90 g",
+    "lang": "es",
+    "countries_tags": [
+      "en:mexico",
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:sweet-snacks",
+      "en:biscuits-and-cakes",
+      "en:biscuits",
+      "en:oatmeal-cookies"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.6875
+  },
+  {
+    "code": "07818196",
+    "product_name": "Crema de avellanas",
+    "brands": "Member's Mark",
+    "quantity": "1 kg",
+    "lang": "es",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:breakfasts",
+      "en:spreads",
+      "en:sweet-spreads",
+      "fr:pates-a-tartiner",
+      "en:hazelnut-spreads",
+      "en:chocolate-spreads"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.6875
+  },
+  {
+    "code": "4823077618253",
+    "product_name": "esmeralda",
+    "product_name_ro": "Roshen Esmeralda Biscuiți cu bucățele de ciocolată",
+    "product_name_en": "Esmeralda biscuits",
+    "brands": "Roshen,Esmeralda",
+    "quantity": "150 g,",
+    "lang": "bg",
+    "countries_tags": [
+      "en:bulgaria",
+      "en:romania",
+      "en:ukraine"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:sweet-snacks",
+      "en:biscuits-and-cakes",
+      "en:biscuits"
+    ],
+    "unique_scans_n": 7,
+    "completeness": 0.975
+  },
+  {
+    "code": "8435070400962",
+    "product_name": "Cacao Sampaka 100% Cocoa Eduador Dark Chocolate",
+    "product_name_en": "Cacao Sampaka 100% Cocoa Eduador Dark Chocolate",
+    "brands": "Cacao Sampaka",
+    "quantity": "100g",
+    "lang": "en",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:sweet-snacks",
+      "en:cocoa-and-its-products",
+      "en:chocolates",
+      "en:dark-chocolates"
+    ],
+    "unique_scans_n": 2,
+    "completeness": 0.6875
+  },
+  {
+    "code": "5941494000617",
+    "product_name": "Sirop natural de căpșuni",
+    "product_name_ro": "Sirop natural de căpșuni",
+    "generic_name": "Sirop natural de căpșuni",
+    "brands": "Laurul",
+    "quantity": "0.75l",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:beverages",
+      "en:syrups",
+      "en:unsweetened-beverages",
+      "en:flavoured-syrups",
+      "en:strawberry-syrups",
+      "en:sweetened-beverages"
+    ],
+    "unique_scans_n": 7,
+    "completeness": 0.6875
+  },
+  {
+    "code": "4840266004895",
+    "product_name": "fit & form",
+    "product_name_en": "fit & form",
+    "brands": "Nefis",
+    "quantity": "95g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:sweet-snacks",
+      "en:biscuits-and-cakes",
+      "en:biscuits",
+      "en:dry-biscuits"
+    ],
+    "unique_scans_n": 13,
+    "completeness": 0.65
+  },
+  {
+    "code": "6034000407259",
+    "product_name": "Dark Chocolate",
+    "product_name_en": "Dark Chocolate",
+    "brands": "Niche",
+    "quantity": "62.5 g",
+    "lang": "en",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:sweet-snacks",
+      "en:cocoa-and-its-products",
+      "en:chocolates",
+      "en:dark-chocolates"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.6875
+  },
+  {
+    "code": "5902768129069",
+    "product_name": "Hering în ulei",
+    "product_name_ro": "Hering în ulei",
+    "brands": "Home Garden",
+    "quantity": "170 g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:seafood",
+      "en:fishes-and-their-products",
+      "en:canned-foods",
+      "en:fishes",
+      "en:fatty-fishes",
+      "en:canned-fishes"
+    ],
+    "unique_scans_n": 2,
+    "completeness": 0.475
+  },
+  {
+    "code": "5941142000358",
+    "product_name": "Baneasa Spaghetti",
+    "product_name_ro": "Baneasa Spaghetti",
+    "generic_name": "Baneasa Spaghetti, 500g,",
+    "brands": "Băneasa",
+    "quantity": "500 g,",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:cereals-and-potatoes",
+      "en:cereals-and-their-products",
+      "en:pastas",
+      "en:dry-pastas"
+    ],
+    "unique_scans_n": 7,
+    "completeness": 0.8875
+  },
+  {
+    "code": "5942105005489",
+    "product_name": "Radler citrice și mentă 0,0%",
+    "product_name_ro": "Radler citrice și mentă 0,0%",
+    "generic_name": "Amestec de limonadă și bere blondă",
+    "brands": "Ciuc",
+    "quantity": "0.33 l",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:beverages",
+      "en:non-alcoholic-beverages",
+      "en:non-alcoholic-beers"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.7875
+  },
+  {
+    "code": "5902768129168",
+    "product_name": "Macrou file în sos tomat",
+    "product_name_ro": "Macrou file în sos tomat",
+    "brands": "Home Garden",
+    "quantity": "170 g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:seafood",
+      "en:fishes-and-their-products",
+      "en:fishes",
+      "en:fatty-fishes",
+      "en:fish-fillets",
+      "en:mackerels"
+    ],
+    "unique_scans_n": 2,
+    "completeness": 0.7875
+  },
+  {
+    "code": "6423602001024",
+    "product_name": "Ceai antistres",
+    "product_name_ro": "Ceai antistres",
+    "brands": "Alevia",
+    "quantity": "32 g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:plant-based-foods-and-beverages",
+      "en:beverages",
+      "en:hot-beverages",
+      "en:plant-based-beverages",
+      "en:teas",
+      "en:non-alcoholic-beverages"
+    ],
+    "unique_scans_n": 2,
+    "completeness": 0.6875
+  },
+  {
+    "code": "0070177189358",
+    "product_name": "Earl Grey",
+    "product_name_ro": "Earl Grey",
+    "brands": "Twinings",
+    "quantity": "100 g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:plant-based-foods-and-beverages",
+      "en:beverages",
+      "en:hot-beverages",
+      "en:plant-based-beverages",
+      "en:teas"
+    ],
+    "completeness": 0.6875
+  },
+  {
+    "code": "80001478",
+    "product_name": "Sandwich dark chocolate",
+    "product_name_ro": "Sandwich dark chocolate",
+    "product_name_en": "Sandwhich dark chocolate",
+    "generic_name": "Napolitane cu ciocolată",
+    "brands": "Loacker",
+    "quantity": "25g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:sweet-snacks",
+      "en:biscuits-and-cakes",
+      "en:biscuits",
+      "en:wafers"
+    ],
+    "unique_scans_n": 8,
+    "completeness": 0.7875
+  },
+  {
+    "code": "90207667",
+    "product_name": "Brânză topită ",
+    "product_name_ro": "Brânză topită ",
+    "generic_name": "Brânză topită",
+    "brands": "Milbona",
+    "quantity": "400g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:dairies",
+      "en:fermented-foods",
+      "en:fermented-milk-products",
+      "en:cheeses",
+      "en:melted-cheese",
+      "ro:brânză-tartinabilă"
+    ],
+    "completeness": 0.4625
+  },
+  {
+    "code": "5941460012378",
+    "product_name": "Salam Uscat Mozaic",
+    "product_name_ro": "Salam Uscat Mozaic",
+    "generic_name": "Salam Uscat",
+    "brands": "Agricola",
+    "quantity": "400 g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:meats-and-their-products",
+      "en:meats",
+      "en:prepared-meats",
+      "en:cured-sausages",
+      "en:salami"
+    ],
+    "unique_scans_n": 3,
+    "completeness": 0.8875
+  },
+  {
+    "code": "5942219111960",
+    "product_name": "Morello cherry",
+    "brands": "Giusto",
+    "quantity": "2 L",
+    "lang": "en",
+    "countries_tags": [
+      "en:romania",
+      "en:spain"
+    ],
+    "categories_tags": [
+      "ro:suc-de-vișine"
+    ],
+    "unique_scans_n": 11,
+    "completeness": 0.6625
+  },
+  {
+    "code": "20723408",
+    "product_name": "Pizza cu Blat Pufos Speciale",
+    "product_name_ro": "Pizza cu Blat Pufos Speciale",
+    "brands": "Trattoria Alfredo, Trium",
+    "quantity": "415 g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:meals",
+      "en:pizzas-pies-and-quiches",
+      "en:pizzas"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.9874999999999998
+  },
+  {
+    "code": "5941265026631",
+    "product_name": "Obrăjori Pate cu pui",
+    "product_name_ro": "Obrăjori Pate cu pui",
+    "generic_name": "Obrăjori Pate cu pui, 150g,",
+    "brands": "Obrăjori,CrisTim",
+    "quantity": "150 g,",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "ro:pate-pentru-copii"
+    ],
+    "completeness": 0.9874999999999998
+  },
+  {
+    "code": "5941634003454",
+    "product_name": "Chickpea",
+    "quantity": "250 g",
+    "lang": "fr",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [],
+    "unique_scans_n": 2,
+    "completeness": 0.375
+  },
+  {
+    "code": "4335896736785",
+    "product_name": "Jelly fruit",
+    "brands": "K-Classic",
+    "lang": "fr",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:snacks",
+      "en:sweet-snacks",
+      "en:confectioneries"
+    ],
+    "completeness": 0.475
+  },
+  {
+    "code": "5946003124228",
+    "product_name": "Sare Iodata",
+    "product_name_ro": "Sare Iodata",
+    "brands": "Salrom",
+    "quantity": "600 g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:condiments",
+      "en:spices",
+      "en:groceries"
+    ],
+    "unique_scans_n": 4,
+    "completeness": 0.7874999999999999
+  },
+  {
+    "code": "5941874700328",
+    "product_name": "Koket Cremwurști din piept de pui extra",
+    "product_name_ro": "Koket Cremwurști din piept de pui extra",
+    "generic_name": "Koket Cremwurști din piept de pui extra, 250g,",
+    "brands": "Koket",
+    "quantity": "250 g,",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "ro:cremwurști-de-pui"
+    ],
+    "completeness": 0.9874999999999998
+  },
+  {
+    "code": "8055348700633",
+    "product_name": "NosiFol-D",
+    "product_name_ro": "NosiFol-D",
+    "brands": "Sakura",
+    "quantity": "30×4g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:dietary-supplements"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.7874999999999999
+  },
+  {
+    "code": "5283001109834",
+    "product_name": "Best spices",
+    "product_name_ro": "Best spices",
+    "generic_name": "Condimente Saorma",
+    "brands": "Abido Spices",
+    "quantity": "100g",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:condiments",
+      "en:spices"
+    ],
+    "completeness": 0.7874999999999999
+  },
+  {
+    "code": "5206769330050",
+    "product_name": "Chris family Suc de pere si mere",
+    "product_name_ro": "Chris family Suc de pere si mere",
+    "generic_name": "Chris family Suc de pere si mere, 1l,",
+    "brands": "Chris family",
+    "quantity": "1 l,",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "ro:sucuri-de-fructe"
+    ],
+    "completeness": 0.8874999999999998
+  },
+  {
+    "code": "5400113548713",
+    "product_name": "Sel rose de l'Himalaya",
+    "product_name_ro": "Sare roz de Himalaya",
+    "product_name_en": "Sel rose de l'Himalaya",
+    "brands": "DELHAIZE",
+    "quantity": "110 g",
+    "lang": "en",
+    "countries_tags": [
+      "en:belgium",
+      "en:romania"
+    ],
+    "categories_tags": [],
+    "unique_scans_n": 1,
+    "completeness": 0.375
+  },
+  {
+    "code": "5449000124487",
+    "product_name": "Coca citron",
+    "product_name_ro": "Coca citron",
+    "brands": "Coca-Cola",
+    "quantity": "2 x 250 ml",
+    "lang": "ro",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:beverages",
+      "en:carbonated-drinks",
+      "en:sodas",
+      "en:sweetened-beverages"
+    ],
+    "unique_scans_n": 1,
+    "completeness": 0.5874999999999999
+  },
+  {
+    "code": "5449000141682",
+    "product_name": "Coca cola zero",
+    "product_name_en": "Coca cola zero",
+    "brands": "The Coca Cola Company",
+    "quantity": "2.5 l",
+    "lang": "en",
+    "countries_tags": [
+      "en:romania"
+    ],
+    "categories_tags": [
+      "en:beverages",
+      "en:carbonated-drinks",
+      "en:artificially-sweetened-beverages",
+      "en:sodas",
+      "en:diet-beverages",
+      "en:colas"
+    ],
+    "unique_scans_n": 33,
+    "completeness": 0.6874999999999999
+  },
+  {
+    "code": "5449000044730",
+    "product_name": "Schweppes Tangerine",
+    "product_name_en": "Schweppes Tangerine",
+    "brands": "Schweppes",
+    "quantity": "1500 ml",
+    "lang": "en",
+    "countries_tags": [
+      "en:romania",
+      "en:switzerland"
+    ],
+    "categories_tags": [
+      "en:beverages",
+      "en:carbonated-drinks",
+      "en:sodas",
+      "en:sweetened-beverages"
+    ],
+    "unique_scans_n": 93,
+    "completeness": 0.7
+  }
+]

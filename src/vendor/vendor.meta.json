@@ -28,7 +28,7 @@
     },
     "productEmoji.ts": {
       "upstream": "src/lib/productEmoji.ts",
-      "sha256": "733477dca876505e338881d264fc4623b3d4075e4d34cfe8ea05cfe6bfd8c20e",
+      "sha256": "426e7ca08c15f8a5946f5a0347ae0dbbe1b681891379c1aebeacbce629036430",
       "vendoredAt": "2026-07-27",
       "why": "getProductEmoji makes the coverage report exact rather than an approximation of the app's keyword table."
     }

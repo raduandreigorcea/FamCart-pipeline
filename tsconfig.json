@@ -12,6 +12,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
+    // Imports carry an explicit .ts extension, which is what tsx and Node's own
+    // resolver both want. Safe here because nothing is ever emitted.
+    "allowImportingTsExtensions": true,
     "types": ["node"]
   },
   "include": ["src/**/*.ts", "test/**/*.ts"]

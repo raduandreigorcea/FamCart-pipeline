@@ -101,10 +101,13 @@ export type RejectReason =
   | 'search-text-too-long'
   | 'no-market'
 
+export type QuantityUnit = 'L' | 'ml' | 'kg' | 'g'
+
+// Split into size and count because the curated catalog writes them separately
+// and in that order: "Apa Plata 0.5L 6 buc", "Oua Marimea M 10 buc",
+// "Chifle 6 buc". At least one of the two is always present.
 export interface ParsedQuantity {
-  value: number
-  unit: 'L' | 'ml' | 'kg' | 'g' | 'buc'
-  // The multiplier in "6 x 0.5 L"; null for a single pack.
+  size: { value: number; unit: QuantityUnit } | null
   count: number | null
   raw: string
 }
@@ -116,7 +119,12 @@ export interface OffSignals {
   completeness: number
   categoriesTags: string[]
   hasBrand: boolean
+  // Parsed into a size or a count.
   hasQuantity: boolean
+  // The upstream field held something, even if it could not be read. Worth
+  // partial credit: somebody filled the pack size in, we just could not parse
+  // their phrasing.
+  rawQuantityPresent: boolean
   marketTier: 1 | 2
 }
 
