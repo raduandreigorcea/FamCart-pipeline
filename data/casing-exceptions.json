@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "_comment": [
+    "Exceptions to plain Title Case, for names in FamCart's house style",
+    "('Apa Plata 2L', 'Oua Marimea M 10 buc').",
+    "",
+    "Not listed here because they are rules rather than words:",
+    "  - a token starting with a digit is left verbatim, which covers 2L, 500g,",
+    "    1.5L, 3.5%, 6x0.5L in one line",
+    "  - a single letter is left verbatim ('Marimea M' is a size code)",
+    "  - a hyphenated token is title-cased on both sides (Coca-Cola), unless the",
+    "    whole token is a brand-alias key, in which case the canonical spelling wins",
+    "",
+    "`lower` are Romanian function words, lowercased unless they lead the name --",
+    "the curated catalog reads 'Crema de Alune', not 'Crema De Alune'."
+  ],
+  "upper": ["UHT", "BIO", "ESL", "XXL", "XL", "PET", "RO", "DDL", "LED"],
+  "lower": [
+    "de",
+    "cu",
+    "si",
+    "la",
+    "din",
+    "pentru",
+    "fara",
+    "in",
+    "pe",
+    "a",
+    "al",
+    "ale",
+    "buc"
+  ]
+}

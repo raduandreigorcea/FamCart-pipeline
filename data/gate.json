@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "_comment": [
+    "The hybrid gate. Score 0-100, additive; >= autoMin loads without asking,",
+    "reviewMin..autoMin-1 goes to out/review-queue.jsonl for a human, below",
+    "reviewMin is dropped but logged to out/dropped.jsonl.",
+    "",
+    "Tuning is a data commit, not a code change, and `version` is recorded in the",
+    "run manifest so a given batch can always be traced to the numbers that",
+    "produced it.",
+    "",
+    "Hard overrides apply AFTER the numeric band and cannot be scored around:",
+    "  - a 'foreign-name' warning caps at review (never auto)",
+    "  - a tier2-only market caps at review",
+    "  - no scan count AND no brand forces drop -- both conditions, because",
+    "    unique_scans_n is absent on ~65% of the database and absence must mean",
+    "    'no signal' rather than 'disqualified'",
+    "",
+    "nameRo 20 vs nameEn 12: an English name is legitimate for an international",
+    "brand on a Romanian shelf, so it may auto-load, but it has to earn the rest",
+    "of its score rather than coast in."
+  ],
+  "autoMin": 62,
+  "reviewMin": 40,
+  "weights": {
+    "marketTier1": 25,
+    "marketTier2": 10,
+    "nameRo": 20,
+    "nameEn": 12,
+    "nameOther": 0,
+    "popularityMax": 20,
+    "popularityScale": 8,
+    "brand": 12,
+    "quantityParsed": 10,
+    "quantityUnparseable": 3,
+    "completenessMax": 8,
+    "categories": 5,
+    "sanityPenalty": -30,
+    "warningPenalty": -10
+  }
+}

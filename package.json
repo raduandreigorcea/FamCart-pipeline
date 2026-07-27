@@ -1,0 +1,32 @@
+{
+  "name": "@famcart/catalog-importer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Imports Open Food Facts products into FamCart's product_catalog.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "acquire": "tsx src/cli.ts acquire",
+    "acquire:filter": "tsx src/cli.ts acquire --filter",
+    "normalize": "tsx src/cli.ts normalize",
+    "score": "tsx src/cli.ts score",
+    "review": "tsx src/cli.ts review",
+    "load": "tsx src/cli.ts load",
+    "load:apply": "tsx src/cli.ts load --apply",
+    "report:emoji": "tsx src/cli.ts report-emoji",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.108.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  }
+}

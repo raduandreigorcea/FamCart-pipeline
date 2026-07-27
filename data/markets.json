@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "_comment": [
+    "Which Open Food Facts countries_tags a product must carry to be considered.",
+    "",
+    "tier1 is the home market: eligible to auto-load if it also clears the quality",
+    "gate. tier2 is everything else on Romanian shelves -- imported brands, border",
+    "trade -- and can never auto-load, only reach the review queue. A product sold",
+    "only in Hungary is noise to someone typing Romanian into the search box, so a",
+    "human decides rather than a threshold.",
+    "",
+    "Measured 2026-07-27: a Romania query returns count 10000 with",
+    "is_count_exact false, so the true tier1 size is unknown until the first full",
+    "dump pass reports it."
+  ],
+  "tier1": ["en:romania", "en:moldova"],
+  "tier2": [
+    "en:hungary",
+    "en:bulgaria",
+    "en:poland",
+    "en:germany",
+    "en:austria",
+    "en:italy",
+    "en:france"
+  ]
+}

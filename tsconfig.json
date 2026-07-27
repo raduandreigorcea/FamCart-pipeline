@@ -1,0 +1,18 @@
+// Mirrors FamCart's tsconfig so the vendored modules typecheck identically on
+// both sides -- a stricter or looser setting here would let a copy compile that
+// the app rejects, or the reverse.
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
+}

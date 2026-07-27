@@ -1,0 +1,16 @@
+node_modules
+
+# The Open Food Facts dump and everything derived from it. The dump alone is
+# ~11.7 GB compressed; none of it belongs in git.
+.cache/
+out/
+
+# Credentials. The importer reads FamCart's .env by default (see src/config.ts),
+# so this is only for a standalone checkout.
+.env
+.env.*
+!.env.example
+
+*.local
+*.log
+.DS_Store

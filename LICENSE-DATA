@@ -1,0 +1,37 @@
+Data licence — Open Food Facts
+==============================
+
+This repository imports product data from Open Food Facts (https://openfoodfacts.org).
+
+That data is made available under the Open Database License (ODbL) v1.0:
+    https://opendatacommons.org/licenses/odbl/1-0/
+
+Individual contents of the database are under the Database Contents License (DbCL) v1.0:
+    https://opendatacommons.org/licenses/dbcl/1-0/
+
+Product images (not used by this importer) are under CC BY-SA.
+
+
+What this obliges FamCart to do
+-------------------------------
+
+1. ATTRIBUTION (ODbL §4.3). Any public use of the derived data must credit Open Food Facts.
+   FamCart discharges this with a user-visible line in the app's settings/about screen:
+
+       Product data from Open Food Facts, © contributors, ODbL 1.0
+
+   This is a required deliverable shipping WITH the first import, not a follow-up.
+
+2. SHARE-ALIKE (ODbL §4.4). A publicly used Derivative Database must itself be offered under
+   ODbL. This binds the DATA, not FamCart's application code — the two are separate works and
+   coexist. The practical consequence is that the imported rows may not be relicensed under
+   FamCart's own terms.
+
+3. TRACEABILITY. Every imported row carries source = 'openfoodfacts' in product_catalog
+   (migration 028). That column is what makes "which rows are ODbL" an answerable question, and
+   it is the strongest reason the column exists. Rows that are curated or family-contributed are
+   FamCart's own and carry no upstream obligation.
+
+
+Note: this is a summary written to make the obligations actionable, not legal advice. Read the
+licence text and Open Food Facts' terms of use before any commercial release.

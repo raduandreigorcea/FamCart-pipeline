@@ -1,0 +1,36 @@
+{
+  "_comment": [
+    "Byte-for-byte copies of FamCart modules. Vendored rather than imported because",
+    "this repo is a submodule and must also work as a standalone clone, where",
+    "../../src/lib/... does not exist.",
+    "",
+    "sha256 is authoritative: test/vendorDrift.test.ts checks it from here, and",
+    "FamCart's own test/vendorDrift.test.js checks it from the other side, so an",
+    "edit to either copy fails a test wherever it is made. Never edit these files",
+    "directly -- change the upstream module and re-copy, then update the hash.",
+    "",
+    "The hash is of the LF-NORMALIZED bytes. FamCart is developed on Windows with",
+    "core.autocrlf=true, so the working copy is CRLF there and LF on a Linux CI",
+    "runner; hashing the raw file would make this test pass on one and fail on the",
+    "other. Both drift tests strip CR before comparing, so the check survives the",
+    "crossing without going blind to a real edit.",
+    "",
+    "Refresh with, from the FamCart root:",
+    "  cp src/lib/productSearch.ts tools/catalog-importer/src/vendor/productSearch.ts",
+    "  tr -d '\\r' < src/lib/productSearch.ts | sha256sum"
+  ],
+  "files": {
+    "productSearch.ts": {
+      "upstream": "src/lib/productSearch.ts",
+      "sha256": "086e66e7a59215627f1c582c10bc8db0e2e63075049accd0952319ca20d7a318",
+      "vendoredAt": "2026-07-27",
+      "why": "normalizeSearchText and productKey decide which candidate rows collapse together before load. A divergent copy would collapse a different set than the database does."
+    },
+    "productEmoji.ts": {
+      "upstream": "src/lib/productEmoji.ts",
+      "sha256": "733477dca876505e338881d264fc4623b3d4075e4d34cfe8ea05cfe6bfd8c20e",
+      "vendoredAt": "2026-07-27",
+      "why": "getProductEmoji makes the coverage report exact rather than an approximation of the app's keyword table."
+    }
+  }
+}
