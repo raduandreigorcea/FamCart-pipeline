@@ -7,7 +7,7 @@
 // pushes a name over the limit.
 import { normalizeSearchText, productKey } from '../vendor/productSearch.ts'
 import { pickBrand, MAKER_MAX } from './brand.ts'
-import { clampName, pickName, stripBrandPrefix, titleCaseRo } from './name.ts'
+import { clampName, pickName, stripBrandPrefix, titleCaseRo, trimNameEdges } from './name.ts'
 import { appendQuantity, parseQuantity } from './quantity.ts'
 import type {
   BrandAliasTable,
@@ -83,7 +83,8 @@ export function normalizeProduct(raw: RawOffProduct, ctx: NormalizeContext): Nor
   if (HAS_URL.test(chosen.text)) return reject('blocklisted-name', chosen.text)
   if (folded.length < 3) return reject('name-too-short', chosen.text)
 
-  const withoutBrand = stripBrandPrefix(chosen.text, maker, ctx.aliases)
+  const withoutBrand = trimNameEdges(stripBrandPrefix(chosen.text, maker, ctx.aliases))
+  if (normalizeSearchText(withoutBrand).length < 3) return reject('name-too-short', chosen.text)
   const cased = titleCaseRo(withoutBrand, ctx.casing, ctx.aliases)
 
   const quantity = parseQuantity(raw.quantity, {

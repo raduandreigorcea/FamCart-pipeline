@@ -156,6 +156,25 @@ export function stripBrandPrefix(
   return name
 }
 
+// Junk at the front of a name, found on 19 of the first 3,293 imported products.
+//
+// Runs after the brand prefix comes off, because that is what creates the first
+// case: "Doritos - Tortilla Chips Nacho" loses "Doritos" and is left starting on
+// the separator that used to sit between them.
+export function trimNameEdges(name: string): string {
+  // Separators only. A leading '#' is part of the name (Fanta really does sell
+  // #whatthefanta) and a leading '(' opens a parenthetical clampName handles.
+  let out = name.replace(/^[-–—/,:;.\s]+/, '').trim()
+
+  // "91060 Franzela Neagra 300g" -- a shelf code from the retailer's system.
+  // Five digits, not four: "1000 Insule" is a salad dressing and "3 Minute
+  // Paste" is a pasta, and both have to survive.
+  const withoutSku = out.match(/^\d{5,}\s+(\S.*)$/)
+  if (withoutSku && tokens(withoutSku[1]).length >= 2) out = withoutSku[1]
+
+  return out.trim()
+}
+
 const isDigitLed = (token: string) => /^[-+]?\d/.test(token)
 
 function capitalize(word: string): string {

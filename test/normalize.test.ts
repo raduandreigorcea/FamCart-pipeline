@@ -1,6 +1,13 @@
 import { describe, it, expect } from 'vitest'
 import { normalizeProduct } from '../src/normalize/index.ts'
-import { pickName, stripBrandPrefix, titleCaseRo, clampName, cleanRawName } from '../src/normalize/name.ts'
+import {
+  pickName,
+  stripBrandPrefix,
+  titleCaseRo,
+  clampName,
+  cleanRawName,
+  trimNameEdges,
+} from '../src/normalize/name.ts'
 import { pickBrand, brandParts } from '../src/normalize/brand.ts'
 import aliases from '../data/brand-aliases.json' with { type: 'json' }
 import casing from '../data/casing-exceptions.json' with { type: 'json' }
@@ -181,6 +188,61 @@ describe('pickBrand', () => {
 
   it('skips past a placeholder to a real brand', () => {
     expect(pickBrand({ brands: 'unknown,Dorna' }, aliases, casing)).toBe('Dorna')
+  })
+
+  // All three were found in the first 10,000 Romanian products, not imagined.
+  it('drops the retailer annotation store brands carry', () => {
+    expect(pickBrand({ brands: 'Pilos ( Lidl )' }, aliases, casing)).toBe('Pilos')
+    expect(pickBrand({ brands: 'Golden Sun (lidl)' }, aliases, casing)).toBe('Golden Sun')
+    expect(pickBrand({ brands: 'Hemp Up! (by Canah)' }, aliases, casing)).toBe('Hemp Up!')
+  })
+
+  it('treats a legal notice in the brand field as no brand', () => {
+    expect(
+      pickBrand({ brands: '®reg. Trademark Of Societe Des Produits Nestle S. A.' }, aliases, casing),
+    ).toBeNull()
+  })
+
+  it('rejects a barcode in the brand field but keeps short numeric brands', () => {
+    expect(pickBrand({ brands: '4388860451108' }, aliases, casing)).toBeNull()
+    // 365 is Mega Image's private label and 7 Days is a real bakery, so this
+    // cannot simply reject anything numeric.
+    expect(pickBrand({ brands: '365' }, aliases, casing)).toBe('365')
+    expect(pickBrand({ brands: '7 Days' }, aliases, casing)).toBe('7 Days')
+  })
+
+  it('falls through a bracket-only part to the next brand', () => {
+    expect(pickBrand({ brands: ['( Lidl )', 'Pilos'] }, aliases, casing)).toBe('Pilos')
+  })
+})
+
+describe('trimNameEdges', () => {
+  // What stripping the brand leaves behind when the two were separated by
+  // punctuation. All of these reached the live catalog before the fix.
+  it('drops the separator a stripped brand prefix leaves behind', () => {
+    expect(trimNameEdges('- Tortilla Chips Nacho')).toBe('Tortilla Chips Nacho')
+    expect(trimNameEdges('– Salam Victoria 100g')).toBe('Salam Victoria 100g')
+    expect(trimNameEdges('/ Mustar Iute 300g')).toBe('Mustar Iute 300g')
+  })
+
+  it('drops a retailer shelf code', () => {
+    expect(trimNameEdges('91060 Franzela Neagra 300g')).toBe('Franzela Neagra 300g')
+    expect(trimNameEdges('06258 Franzeluta Alba 150g')).toBe('Franzeluta Alba 150g')
+  })
+
+  it('keeps numbers that are part of the product', () => {
+    expect(trimNameEdges('3 Minute Paste Fusilli 500g')).toBe('3 Minute Paste Fusilli 500g')
+    expect(trimNameEdges('7 Days Double 60g')).toBe('7 Days Double 60g')
+    expect(trimNameEdges('1000 Insule Sos 250ml')).toBe('1000 Insule Sos 250ml')
+    expect(trimNameEdges('85% Dark Strong 100g')).toBe('85% Dark Strong 100g')
+  })
+
+  it('leaves a leading hash alone -- it is part of the name', () => {
+    expect(trimNameEdges('#whatthefanta 250ml')).toBe('#whatthefanta 250ml')
+  })
+
+  it('will not strip a code down to a single word', () => {
+    expect(trimNameEdges('91060 Franzela')).toBe('91060 Franzela')
   })
 })
 

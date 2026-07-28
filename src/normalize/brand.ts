@@ -18,6 +18,25 @@ export function brandParts(brands: string | string[] | null | undefined): string
   return raw.map((part) => cleanRawName(part)).filter(Boolean)
 }
 
+// A legal notice that ended up in the brand column, e.g. Nestle's
+// "®reg. Trademark Of Societe Des Produits Nestle S. A.". No shopper reads that
+// as a maker, and it is never the only brand part on a product.
+const TRADEMARK_NOISE = /[®™©]|\breg\.?\s*trademark\b|\btrademark\s+of\b/i
+
+// Cleanups that apply to the brand field and to nothing else. Returns null when
+// the part is not a brand at all, so the caller moves on to the next one.
+export function tidyBrandPart(part: string): string | null {
+  // "Pilos ( Lidl )", "Golden Sun (lidl)" -- a note about which supermarket
+  // stocks it, not part of the name a shopper reads under the product.
+  const tidied = part.replace(/\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim()
+  if (!tidied) return null
+  if (TRADEMARK_NOISE.test(tidied)) return null
+  // A barcode in the wrong column. Bounded at 8 digits because short numeric
+  // brands are real -- 365 is Mega Image's private label, 7 Days is a bakery.
+  if (/^\d{8,}$/.test(tidied)) return null
+  return tidied
+}
+
 export function pickBrand(
   raw: RawOffProduct,
   aliases: BrandAliasTable,
@@ -25,7 +44,9 @@ export function pickBrand(
 ): string | null {
   const drop = new Set((aliases.drop ?? []).map((d) => normalizeSearchText(d)))
 
-  for (const part of brandParts(raw.brands)) {
+  for (const rawPart of brandParts(raw.brands)) {
+    const part = tidyBrandPart(rawPart)
+    if (!part) continue
     const folded = normalizeSearchText(part)
     // "unknown", "sans marque", "marca proprie" -- a brand field that means
     // there is no brand. Must become null, never a maker called "Unknown".
