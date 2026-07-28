@@ -20,8 +20,8 @@ import meta from '../src/vendor/vendor.meta.json' with { type: 'json' }
 
 const here = dirname(fileURLToPath(import.meta.url))
 const vendorDir = join(here, '..', 'src', 'vendor')
-// test/ -> repo root -> tools/ -> FamCart root.
-const famcartRoot = join(here, '..', '..', '..')
+// test/ -> repo root -> FamCart root.
+const famcartRoot = join(here, '..', '..')
 
 // Compared with CR stripped. FamCart is developed on Windows with
 // core.autocrlf=true, so the same file is CRLF in a local working copy and LF on

@@ -1,6 +1,6 @@
 // Where the pipeline reads and writes, and how it finds credentials.
 //
-// The importer normally lives at tools/catalog-importer inside a FamCart
+// The importer normally lives at catalog-importer/ inside a FamCart
 // checkout, so by default it reads FamCart's .env -- the same file
 // scripts/seed-products.mjs uses, with the same variable names. One set of
 // credentials, no duplication, nothing extra to keep in sync.
@@ -62,12 +62,11 @@ export const paths = {
   decisions: join(dataDir, 'decisions.jsonl'),
 } as const
 
-// Which .env to read. The FamCart root is two levels up (tools/ then the repo),
-// and is only accepted if it actually looks like FamCart -- so a standalone
-// clone that happens to sit two levels below some other project is not raided
-// for its credentials.
+// Which .env to read. The FamCart root is one level up, and is only accepted if
+// it actually looks like FamCart -- so a standalone clone that happens to sit
+// inside some other project is not raided for its credentials.
 export function findEnvFile(): string | null {
-  const famcartRoot = resolve(repoRoot, '..', '..')
+  const famcartRoot = resolve(repoRoot, '..')
   const famcartPkg = join(famcartRoot, 'package.json')
   if (existsSync(famcartPkg)) {
     try {

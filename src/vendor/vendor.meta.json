@@ -16,7 +16,7 @@
     "crossing without going blind to a real edit.",
     "",
     "Refresh with, from the FamCart root:",
-    "  cp src/lib/productSearch.ts tools/catalog-importer/src/vendor/productSearch.ts",
+    "  cp src/lib/productSearch.ts catalog-importer/src/vendor/productSearch.ts",
     "  tr -d '\\r' < src/lib/productSearch.ts | sha256sum"
   ],
   "files": {
