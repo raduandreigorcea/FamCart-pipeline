@@ -23,7 +23,7 @@ import type { DumpManifest, MarketConfig, RawOffProduct, SubsetStats } from '../
 
 // The fields any later stage reads. Everything else -- nutriments, ingredient
 // trees, per-language packaging text -- is the other 99% of the bytes.
-const KEEP_FIELDS = [
+export const KEEP_FIELDS = [
   'code',
   'product_name',
   'product_name_ro',
@@ -43,7 +43,7 @@ const KEEP_FIELDS = [
   'obsolete',
 ] as const
 
-function project(record: Record<string, unknown>): RawOffProduct {
+export function project(record: Record<string, unknown>): RawOffProduct {
   const out: Record<string, unknown> = {}
   for (const field of KEEP_FIELDS) {
     const value = record[field]

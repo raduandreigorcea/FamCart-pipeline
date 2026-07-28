@@ -9,6 +9,7 @@
   },
   "scripts": {
     "acquire": "tsx src/cli.ts acquire",
+    "acquire:search": "tsx src/cli.ts acquire --search",
     "acquire:filter": "tsx src/cli.ts acquire --filter",
     "normalize": "tsx src/cli.ts normalize",
     "score": "tsx src/cli.ts score",

@@ -15,6 +15,7 @@ import {
   paths,
 } from './config.ts'
 import { downloadDump, readSubset, writeMarketSubset } from './acquire/dump.ts'
+import { harvestMarkets } from './acquire/api.ts'
 import { normalizeProduct } from './normalize/index.ts'
 import { scoreProduct } from './score/score.ts'
 import { applyGate } from './score/gate.ts'
@@ -53,16 +54,29 @@ const writeJsonl = (path: string, rows: unknown[]) => {
 // re-weighted or deleted on its own later.
 const sourceVersion = () => `off-${new Date().toISOString().slice(0, 10)}`
 
+function reportSubset(stats: { linesRead: number; malformed: number; kept: number; tier1: number; tier2: number; bytesOut: number; elapsedMs: number }) {
+  console.log(
+    `\nRead ${stats.linesRead.toLocaleString()} records in ${Math.round(stats.elapsedMs / 1000)}s\n` +
+      `  kept        ${stats.kept.toLocaleString()} (tier1 ${stats.tier1.toLocaleString()}, tier2 ${stats.tier2.toLocaleString()})\n` +
+      `  malformed   ${stats.malformed.toLocaleString()}\n` +
+      `  written     ${(stats.bytesOut / 1e6).toFixed(1)} MB to ${paths.subset}`,
+  )
+}
+
 async function acquire() {
+  // The quick path. Capped at 10,000 products per country and rate-limited to
+  // 10 requests a minute, so it is a first wave rather than a full market --
+  // but it produces the same subset file in minutes instead of hours.
+  if (hasFlag('--search')) {
+    console.log('Harvesting the configured markets from the search API (10 req/min)...')
+    reportSubset(await harvestMarkets(loadMarkets(), { tier2: hasFlag('--tier2') }))
+    console.log('\nNext: npm run normalize')
+    return
+  }
+
   if (hasFlag('--filter')) {
     console.log('Filtering the dump to the configured markets (one pass over ~78 GB)...')
-    const stats = await writeMarketSubset(loadMarkets())
-    console.log(
-      `\nRead ${stats.linesRead.toLocaleString()} records in ${Math.round(stats.elapsedMs / 1000)}s\n` +
-        `  kept        ${stats.kept.toLocaleString()} (tier1 ${stats.tier1.toLocaleString()}, tier2 ${stats.tier2.toLocaleString()})\n` +
-        `  malformed   ${stats.malformed.toLocaleString()}\n` +
-        `  written     ${(stats.bytesOut / 1e6).toFixed(1)} MB to ${paths.subset}`,
-    )
+    reportSubset(await writeMarketSubset(loadMarkets()))
     return
   }
 

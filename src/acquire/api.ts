@@ -12,8 +12,11 @@
 //     every response here is checked for JSON.
 //   - Search-a-licious caps its count and reports is_count_exact: false, so it
 //     cannot enumerate a market.
-import { PRODUCT_URL, RATE_LIMIT_PER_MIN, SEARCH_URL, getUserAgent } from '../config.ts'
-import type { RawOffProduct } from '../types.ts'
+import { createWriteStream, mkdirSync } from 'node:fs'
+import { dirname } from 'node:path'
+import { PRODUCT_URL, RATE_LIMIT_PER_MIN, SEARCH_URL, getUserAgent, paths } from '../config.ts'
+import { KEEP_FIELDS, project } from './dump.ts'
+import type { MarketConfig, RawOffProduct, SubsetStats } from '../types.ts'
 
 class RateLimiter {
   private readonly intervalMs: number
@@ -71,10 +74,16 @@ export interface SearchPage {
   pageCount: number
 }
 
-export async function search(query: string, page = 1, pageSize = 50): Promise<SearchPage> {
+export async function search(
+  query: string,
+  page = 1,
+  pageSize = 50,
+  fields?: readonly string[],
+): Promise<SearchPage> {
   const url =
     `${SEARCH_URL}?q=${encodeURIComponent(query)}` +
-    `&page=${page}&page_size=${pageSize}`
+    `&page=${page}&page_size=${pageSize}` +
+    (fields ? `&fields=${fields.join(',')}` : '')
   const body = (await getJson(url, searchLimiter)) as {
     hits?: RawOffProduct[]
     count?: number
@@ -90,4 +99,82 @@ export async function search(query: string, page = 1, pageSize = 50): Promise<Se
     countExact: Boolean(body.is_count_exact),
     pageCount: body.page_count ?? 0,
   }
+}
+
+// Elasticsearch refuses `from + size` beyond 10,000, so one country query can
+// surface at most that many products no matter how it is paged. Confirmed by
+// request: page 100 at page_size 100 returns a full page, page 101 does not.
+const PAGE_SIZE = 100
+const MAX_PAGE = 10_000 / PAGE_SIZE
+
+// The dump-free way to fill the catalog: one query per market, paged to the
+// engine's ceiling, projected to the same fields writeMarketSubset() keeps and
+// written to the same file. Everything downstream cannot tell which acquire
+// path produced it.
+//
+// This is NOT a replacement for the dump. It is capped at 10,000 per country
+// and ordered by whatever relevance the engine picks, so it can never enumerate
+// a market -- but it turns "wait for 11.7 GB" into "wait ten minutes" for a
+// first wave, and the dump can be layered on top later without conflict.
+export async function harvestMarkets(
+  markets: MarketConfig,
+  options: { tier2?: boolean } = {},
+): Promise<SubsetStats> {
+  const queries: { country: string; tier: 1 | 2 }[] = [
+    ...markets.tier1.map((country) => ({ country, tier: 1 as const })),
+    ...(options.tier2 ? markets.tier2.map((country) => ({ country, tier: 2 as const })) : []),
+  ]
+
+  mkdirSync(dirname(paths.subset), { recursive: true })
+  const out = createWriteStream(paths.subset, { encoding: 'utf8' })
+  const started = Date.now()
+  // Countries overlap heavily -- a Coca-Cola carries a dozen of them -- so the
+  // same product arrives from several queries. Keep the first sighting.
+  const seen = new Set<string>()
+  const stats: SubsetStats = {
+    linesRead: 0,
+    malformed: 0,
+    kept: 0,
+    tier1: 0,
+    tier2: 0,
+    bytesOut: 0,
+    elapsedMs: 0,
+  }
+
+  for (const { country, tier } of queries) {
+    for (let page = 1; page <= MAX_PAGE; page += 1) {
+      const result = await search(
+        `countries_tags:"${country}"`,
+        page,
+        PAGE_SIZE,
+        [...KEEP_FIELDS],
+      )
+      stats.linesRead += result.hits.length
+
+      for (const hit of result.hits) {
+        const code = typeof hit.code === 'string' ? hit.code : ''
+        if (!code || seen.has(code)) continue
+        seen.add(code)
+
+        const line = `${JSON.stringify(project(hit as Record<string, unknown>))}\n`
+        stats.bytesOut += Buffer.byteLength(line)
+        stats.kept += 1
+        if (tier === 1) stats.tier1 += 1
+        else stats.tier2 += 1
+        if (!out.write(line)) await new Promise<void>((resolve) => out.once('drain', () => resolve()))
+      }
+
+      console.log(
+        `  ${country} page ${page}/${Math.min(result.pageCount, MAX_PAGE)} -- ${stats.kept.toLocaleString()} products so far`,
+      )
+      if (result.hits.length < PAGE_SIZE || page >= result.pageCount) break
+    }
+  }
+
+  await new Promise<void>((resolve, reject) => {
+    out.end((error?: Error) => (error ? reject(error) : resolve()))
+  })
+
+  stats.elapsedMs = Date.now() - started
+  return stats
 }

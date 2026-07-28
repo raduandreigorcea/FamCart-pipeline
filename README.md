@@ -20,8 +20,7 @@ Each step writes a file the next one reads, so you can re-run any step without r
 before it.
 
 ```
-npm run acquire         # download the dump -> .cache/  (11.7 GB, once)
-npm run acquire:filter  # filter to our markets -> .cache/markets-subset.jsonl
+npm run acquire:search  # ~10 min, up to 10k products per country -> .cache/markets-subset.jsonl
 npm run normalize       # -> out/staged.jsonl, out/rejected.jsonl
 npm run score           # -> out/review-queue.jsonl, out/dropped.jsonl, out/report.md
 npm run review          # print the queue, emit an approval block to paste
@@ -32,6 +31,13 @@ npm run report:emoji    # products that fall through to the shopping-bag emoji
 
 Read `out/report.md` before approving anything, and `out/load-diff.md` before `load:apply` —
 no curated row should ever show up as changed.
+
+For the full market rather than a first wave, replace the first step with the dump:
+
+```
+npm run acquire         # download the dump -> .cache/  (11.7 GB, once)
+npm run acquire:filter  # filter to our markets -> .cache/markets-subset.jsonl
+```
 
 To undo a whole import:
 
