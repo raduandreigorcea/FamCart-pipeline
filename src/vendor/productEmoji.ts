@@ -50,7 +50,11 @@ const EMOJI_RULES = [
   // ─── Snacks ────────────────────────────────────────────────────────────────
   // Before the dairy rule below: "Chipsuri cu Smantana" ties on length between
   // "chipsuri" and "smantana", and chips is the product.
-  { emoji: '🥔', keywords: ['chipsuri', 'chips', 'crisps', 'tortilla chips', 'nachos chips'] },
+  //
+  // Fries rather than a potato: Unicode has no crisps, and a raw potato is what
+  // the vegetable rule already uses -- a bag of Lay's and a kilo of cartofi were
+  // the same icon in the list. Fried potato is at least the right meal.
+  { emoji: '🍟', keywords: ['chipsuri', 'chips', 'crisps', 'tortilla chips', 'nachos chips', 'fries', 'french fries', 'cartofi pai', 'cartofi prajiti'] },
   { emoji: '🥛', keywords: ['smantana', 'sour cream', 'crema de gatit', 'cooking cream', 'frisca', 'whipping cream'] },
   // Before the chocolate rule: "Inghetata cu Ciocolata" ties on length and the
   // product is ice cream.
@@ -96,7 +100,7 @@ const EMOJI_RULES = [
   { emoji: '🥫', keywords: ['conserva', 'conserve', 'canned', 'borcan', 'jar', 'pate', 'pateu', 'pate de porc', 'pate de pui', 'crema de hrean', 'zacusca', 'compot'] },
 
   // ─── Vegetables ────────────────────────────────────────────────────────────
-  { emoji: '🥔', keywords: ['cartof', 'cartofi', 'potato', 'potatoes', 'piure', 'fries', 'french fries', 'telina', 'celery root', 'pastarnac', 'parsnip'] },
+  { emoji: '🥔', keywords: ['cartof', 'cartofi', 'potato', 'potatoes', 'piure', 'telina', 'celery root', 'pastarnac', 'parsnip'] },
   { emoji: '🧅', keywords: ['ceapa', 'onion', 'onions', 'ceapa verde', 'green onion', 'praz', 'leek'] },
   { emoji: '🧄', keywords: ['usturoi', 'garlic'] },
   { emoji: '🥕', keywords: ['morcov', 'morcovi', 'carrot', 'carrots', 'sfecla', 'beet', 'beets', 'ridiche', 'ridichi', 'radish'] },
@@ -188,7 +192,7 @@ const EMOJI_RULES = [
 // Dorna which is both a water and a dairy — would fire on products it never
 // made. When in doubt, leave it out and let the keywords decide.
 const BRAND_RULES = [
-  { emoji: '🥔', keywords: ['pringles', 'lays', 'lay s', 'doritos', 'cheetos', 'takis', 'chio', 'croco'] },
+  { emoji: '🍟', keywords: ['pringles', 'lays', 'lay s', 'doritos', 'cheetos', 'takis', 'chio', 'croco'] },
   { emoji: '🍫', keywords: ['milka', 'heidi', 'poiana', 'kandia', 'snickers', 'twix', 'bounty', 'kitkat', 'kit kat', 'toblerone', 'raffaello', 'ferrero', 'roshen', 'lindt', 'ritter sport', 'novatini'] },
   { emoji: '🍪', keywords: ['eugenia', 'belvita', 'toortitzi'] },
   { emoji: '🍬', keywords: ['haribo', 'mentos', 'skittles', 'tic tac'] },
