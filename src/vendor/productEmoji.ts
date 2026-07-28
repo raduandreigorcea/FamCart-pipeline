@@ -43,8 +43,8 @@ const EMOJI_RULES = [
 
   // ─── Dairy & eggs ──────────────────────────────────────────────────────────
   { emoji: '🥚', keywords: ['ou', 'oua', 'egg', 'eggs'] },
-  { emoji: '🥛', keywords: ['lapte', 'milk', 'iaurt', 'yogurt', 'yoghurt', 'chefir', 'kefir', 'sana', 'lapte batut', 'skyr'] },
-  { emoji: '🧀', keywords: ['branza', 'cascaval', 'telemea', 'cheese', 'mozzarella', 'parmezan', 'parmesan', 'gouda', 'cheddar', 'emmental', 'feta', 'ricotta', 'burduf', 'brie', 'camembert', 'urda'] },
+  { emoji: '🥛', keywords: ['lapte', 'milk', 'iaurt', 'yogurt', 'yoghurt', 'chefir', 'kefir', 'sana', 'lapte batut', 'skyr', 'actimel'] },
+  { emoji: '🧀', keywords: ['branza', 'cascaval', 'telemea', 'cheese', 'mozzarella', 'parmezan', 'parmesan', 'gouda', 'cheddar', 'emmental', 'feta', 'ricotta', 'burduf', 'brie', 'camembert', 'urda', 'philadelphia'] },
   { emoji: '🧈', keywords: ['unt', 'butter', 'margarina', 'margarine'] },
 
   // ─── Snacks ────────────────────────────────────────────────────────────────
@@ -57,18 +57,18 @@ const EMOJI_RULES = [
   { emoji: '🍦', keywords: ['inghetata', 'ice cream', 'gelato'] },
 
   // ─── Bakery ────────────────────────────────────────────────────────────────
-  { emoji: '🍞', keywords: ['paine', 'bread', 'toast', 'chifla', 'chifle', 'bun', 'buns', 'franzela', 'lipie', 'tortilla', 'lavash', 'pesmet', 'breadcrumbs'] },
+  { emoji: '🍞', keywords: ['paine', 'bread', 'toast', 'painici', 'chifla', 'chifle', 'bun', 'buns', 'franzela', 'lipie', 'tortilla', 'lavash', 'pesmet', 'breadcrumbs'] },
   { emoji: '🥖', keywords: ['bagheta', 'baguette'] },
   { emoji: '🥐', keywords: ['croissant', 'croisant', 'foietaj', 'puff pastry', 'aluat'] },
   { emoji: '🥨', keywords: ['pretzel', 'covrig', 'covrigi', 'covrigei', 'sticksuri', 'grisine'] },
-  { emoji: '🍪', keywords: ['biscuit', 'biscuiti', 'cookie', 'cookies', 'napolitane', 'wafer', 'wafers'] },
+  { emoji: '🍪', keywords: ['biscuit', 'biscuiti', 'cookie', 'cookies', 'napolitane', 'wafer', 'wafers', 'oreo', 'crackers', 'petit beurre', 'turta dulce'] },
   { emoji: '🍰', keywords: ['prajitura', 'cake', 'tort', 'desert', 'dessert', 'ecler', 'savarina', 'cheesecake', 'brownie', 'cozonac'] },
   { emoji: '🧁', keywords: ['muffin', 'briose', 'cupcake', 'drojdie', 'yeast', 'praf de copt', 'baking powder', 'zahar vanilat', 'bicarbonat'] },
   { emoji: '🍩', keywords: ['donut', 'donuts', 'gogosi', 'gogoasa'] },
   { emoji: '🥧', keywords: ['placinta', 'pie', 'strudel', 'tarta'] },
 
   // ─── Sweets ────────────────────────────────────────────────────────────────
-  { emoji: '🍫', keywords: ['ciocolata', 'chocolate', 'cacao', 'nutella', 'crema de alune'] },
+  { emoji: '🍫', keywords: ['ciocolata', 'chocolate', 'cacao', 'nutella', 'crema de alune', 'kinder', 'nesquik'] },
   { emoji: '🍬', keywords: ['bomboane', 'candy', 'candies', 'jeleuri', 'jelly', 'lollipop', 'acadea', 'guma', 'guma de mestecat', 'chewing gum', 'halva', 'zahar', 'sugar'] },
   { emoji: '🍯', keywords: ['miere', 'honey', 'gem', 'dulceata', 'jam', 'marmalade', 'sirop', 'syrup'] },
   { emoji: '🍿', keywords: ['popcorn', 'pufuleti'] },
@@ -87,20 +87,20 @@ const EMOJI_RULES = [
   { emoji: '🦐', keywords: ['creveti', 'shrimp', 'prawns', 'fructe de mare', 'seafood', 'midii', 'mussels', 'calamari', 'squid', 'caracatita', 'octopus'] },
 
   // ─── Staples ───────────────────────────────────────────────────────────────
-  { emoji: '🍝', keywords: ['paste', 'pasta', 'spaghetti', 'penne', 'fusilli', 'tagliatelle', 'macaroane', 'lasagna'] },
+  { emoji: '🍝', keywords: ['paste', 'pasta', 'spaghetti', 'penne', 'fusilli', 'tagliatelle', 'macaroane', 'lasagna', 'spaghete'] },
   { emoji: '🍜', keywords: ['taitei', 'noodles', 'supa instant', 'instant noodles', 'ramen'] },
-  { emoji: '🍚', keywords: ['orez', 'rice', 'risotto', 'cous cous', 'quinoa', 'bulgur'] },
+  { emoji: '🍚', keywords: ['orez', 'rice', 'risotto', 'cous cous', 'cuscus', 'quinoa', 'bulgur'] },
   { emoji: '🫓', keywords: ['faina', 'flour', 'malai', 'cornmeal', 'gris', 'semolina'] },
   { emoji: '🥣', keywords: ['cereale', 'cereal', 'cornflakes', 'corn flakes', 'oat', 'ovaz', 'fulgi', 'musli', 'muesli', 'granola', 'terci', 'porridge', 'maioneza', 'mayo', 'mayonnaise', 'sos', 'sauce', 'dressing'] },
-  { emoji: '🫘', keywords: ['fasole', 'beans', 'linte', 'lentils', 'naut', 'chickpeas', 'mazare', 'peas', 'tofu', 'chickpea'] },
-  { emoji: '🥫', keywords: ['conserva', 'conserve', 'canned', 'borcan', 'jar', 'pate', 'zacusca', 'compot'] },
+  { emoji: '🫘', keywords: ['fasole', 'beans', 'linte', 'lentils', 'naut', 'chickpeas', 'mazare', 'peas', 'tofu', 'chickpea', 'humus', 'hummus'] },
+  { emoji: '🥫', keywords: ['conserva', 'conserve', 'canned', 'borcan', 'jar', 'pate', 'pateu', 'zacusca', 'compot'] },
 
   // ─── Vegetables ────────────────────────────────────────────────────────────
   { emoji: '🥔', keywords: ['cartof', 'cartofi', 'potato', 'potatoes', 'piure', 'fries', 'french fries', 'telina', 'celery root', 'pastarnac', 'parsnip'] },
   { emoji: '🧅', keywords: ['ceapa', 'onion', 'onions', 'ceapa verde', 'green onion', 'praz', 'leek'] },
   { emoji: '🧄', keywords: ['usturoi', 'garlic'] },
   { emoji: '🥕', keywords: ['morcov', 'morcovi', 'carrot', 'carrots', 'sfecla', 'beet', 'beets', 'ridiche', 'ridichi', 'radish'] },
-  { emoji: '🍅', keywords: ['rosie', 'rosii', 'tomato', 'tomatoes', 'bulion', 'passata', 'ketchup', 'pasta de tomate'] },
+  { emoji: '🍅', keywords: ['rosie', 'rosii', 'tomato', 'tomatoes', 'bulion', 'passata', 'ketchup', 'pasta de tomate', 'tomate'] },
   { emoji: '🥒', keywords: ['castravete', 'castraveti', 'cucumber', 'cucumbers', 'cornichon', 'muraturi', 'dovlecel', 'dovlecei', 'zucchini', 'vinete', 'eggplant', 'aubergine'] },
   { emoji: '🥬', keywords: ['salata', 'lettuce', 'spanac', 'spinach', 'varza', 'cabbage', 'kale', 'rucola', 'arugula'] },
   { emoji: '🥦', keywords: ['broccoli', 'conopida', 'cauliflower'] },
@@ -132,10 +132,10 @@ const EMOJI_RULES = [
   // so the flavoured forms are spelled out to win on length.
   { emoji: '🥤', keywords: ['cola', 'fanta', 'sprite', 'soda', 'soft drink', 'pepsi', 'bautura carbogazoasa', 'ice tea', 'iced tea', 'ice tea piersici', 'ice tea lamaie', 'ice tea de piersici'] },
   { emoji: '⚡', keywords: ['energizant', 'energizanta', 'energy drink', 'red bull'] },
-  { emoji: '☕', keywords: ['cafea', 'coffee', 'espresso', 'cappuccino', 'latte', 'nescafe'] },
+  { emoji: '☕', keywords: ['cafea', 'coffee', 'espresso', 'cappuccino', 'latte', 'lungo', 'nescafe'] },
   { emoji: '🍵', keywords: ['ceai', 'tea', 'matcha', 'musetel', 'chamomile', 'ceai de menta', 'ceai de fructe de padure', 'earl grey', 'lady grey'] },
   { emoji: '🍺', keywords: ['bere', 'beer', 'lager', 'pilsner'] },
-  { emoji: '🍷', keywords: ['vin', 'wine', 'merlot', 'cabernet', 'sauvignon'] },
+  { emoji: '🍷', keywords: ['vin', 'wine', 'merlot', 'cabernet', 'sauvignon', 'feteasca'] },
   { emoji: '🥂', keywords: ['prosecco', 'sampanie', 'champagne', 'cava'] },
   { emoji: '🍾', keywords: ['spumant', 'sparkling wine'] },
   { emoji: '🥃', keywords: ['whisky', 'vodka', 'gin', 'rom', 'tuica', 'palinca', 'lichior', 'liqueur'] },
@@ -165,7 +165,7 @@ const EMOJI_RULES = [
 
   // ─── Personal & family ─────────────────────────────────────────────────────
   { emoji: '🩹', keywords: ['vata', 'cotton', 'betisoare de urechi', 'cotton buds', 'plasturi', 'plasture', 'bandage', 'pansament'] },
-  { emoji: '💊', keywords: ['medicament', 'pastile', 'vitamine', 'vitamins', 'aspirina', 'paracetamol', 'supliment'] },
+  { emoji: '💊', keywords: ['medicament', 'pastile', 'vitamine', 'vitamins', 'aspirina', 'paracetamol', 'supliment', 'vitamin', 'vitamina'] },
   { emoji: '🌸', keywords: ['absorbante', 'tampoane', 'sanitary pads', 'tampons'] },
   { emoji: '☀️', keywords: ['protectie solara', 'spf', 'sun cream', 'sunscreen'] },
   { emoji: '🍼', keywords: ['formula', 'baby milk', 'lapte praf', 'scutece', 'diapers', 'piure bebe', 'baby food', 'bebelusi'] },
