@@ -59,14 +59,31 @@ interface Bucket {
   categories: Map<string, number>
 }
 
-export function buildEmojiCoverage(accepted: StagedProduct[], limit: number): EmojiCoverageRow[] {
+export interface EmojiCoverage {
+  rows: EmojiCoverageRow[]
+  // Every product on the fallback, not just the ones that made the top `limit`
+  // buckets. Reporting the buckets' total instead understated the gap by 4x.
+  missing: number
+  // On the fallback but with no usable head token to suggest -- a name made
+  // entirely of brand words, numbers and stopwords. No keyword would fix these;
+  // they need a better name or a brand rule.
+  unsuggestable: number
+}
+
+export function buildEmojiCoverage(accepted: StagedProduct[], limit: number): EmojiCoverage {
   const buckets = new Map<string, Bucket>()
+  let missing = 0
+  let unsuggestable = 0
 
   for (const product of accepted) {
     if (getProductEmoji(product.name, product.maker ?? '') !== FALLBACK_EMOJI) continue
+    missing += 1
 
     const word = headToken(product)
-    if (!word) continue
+    if (!word) {
+      unsuggestable += 1
+      continue
+    }
 
     const bucket: Bucket = buckets.get(word) ?? {
       count: 0,
@@ -104,15 +121,25 @@ export function buildEmojiCoverage(accepted: StagedProduct[], limit: number): Em
     if (probe !== FALLBACK_EMOJI) row.shadowedBy = probe
   }
 
-  return rows.sort((a, b) => b.weightedScore - a.weightedScore).slice(0, limit)
+  return {
+    rows: rows.sort((a, b) => b.weightedScore - a.weightedScore).slice(0, limit),
+    missing,
+    unsuggestable,
+  }
 }
 
-export function renderEmojiCoverage(rows: EmojiCoverageRow[], totalAccepted: number): string {
-  const missing = rows.reduce((sum, r) => sum + r.occurrences, 0)
+export function renderEmojiCoverage(coverage: EmojiCoverage, totalAccepted: number): string {
+  const { rows, missing, unsuggestable } = coverage
+  const covered = rows.reduce((sum, r) => sum + r.occurrences, 0)
   const lines = [
     '# Emoji coverage',
     '',
     `${missing.toLocaleString()} of ${totalAccepted.toLocaleString()} accepted products render as ${FALLBACK_EMOJI}.`,
+    '',
+    `The words below account for ${covered.toLocaleString()} of them. A further ` +
+      `${unsuggestable.toLocaleString()} have no word worth suggesting -- their names are ` +
+      'brand, number and filler only, so they need a BRAND_RULES entry in productEmoji.ts ' +
+      'rather than a keyword.',
     '',
     'Ranked by how much shelf the gap covers, not by raw count. Paste the lines',
     'below into `EMOJI_RULES` in `src/lib/productEmoji.ts`, replacing the emoji',

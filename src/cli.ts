@@ -249,10 +249,10 @@ async function load() {
 function reportEmoji() {
   const scored = readJsonl<ScoredProduct>(paths.scored)
   const accepted = scored.filter((s) => s.verdict === 'auto').map((s) => s.product)
-  const rows = buildEmojiCoverage(accepted, 60)
+  const coverage = buildEmojiCoverage(accepted, 60)
   mkdirSync(outDir, { recursive: true })
-  writeFileSync(paths.emojiCoverage, renderEmojiCoverage(rows, accepted.length), 'utf8')
-  console.log(renderEmojiCoverage(rows, accepted.length))
+  writeFileSync(paths.emojiCoverage, renderEmojiCoverage(coverage, accepted.length), 'utf8')
+  console.log(renderEmojiCoverage(coverage, accepted.length))
   console.log(`\nWritten to ${paths.emojiCoverage}`)
 }
 
