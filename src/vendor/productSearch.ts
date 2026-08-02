@@ -20,7 +20,7 @@
 export interface ProductSuggestion {
   name: string
   maker: string | null
-  // Global cross-family score from product_catalog (migration 022).
+  // Global cross-family score from product_catalog (006_product_catalog.sql).
   popularity?: number
 }
 
@@ -68,7 +68,7 @@ export function productKey(name: string | null | undefined, maker: string | null
 
 // Fold a family's purchase_history rows into per-product stats.
 //
-// purchase_history is pruned to 60 checkouts / 30 days (migration 019), so this
+// purchase_history is pruned to 60 checkouts / 30 days (005_purchase_history.sql), so this
 // is inherently a rolling window of recent behaviour: no decay maths needed, the
 // retention policy already forgets for us.
 export function buildFamilyProductStats(rows: PurchaseHistoryRow[]): Map<string, FamilyProductStat> {

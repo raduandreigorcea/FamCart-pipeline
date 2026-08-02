@@ -22,8 +22,8 @@
   "files": {
     "productSearch.ts": {
       "upstream": "src/lib/productSearch.ts",
-      "sha256": "086e66e7a59215627f1c582c10bc8db0e2e63075049accd0952319ca20d7a318",
-      "vendoredAt": "2026-07-27",
+      "sha256": "9772a4308a406d55837e2c6ef5270e9af94a4e50b7a0d95a42a57c191111747f",
+      "vendoredAt": "2026-08-02",
       "why": "normalizeSearchText and productKey decide which candidate rows collapse together before load. A divergent copy would collapse a different set than the database does."
     },
     "productEmoji.ts": {
