@@ -30,7 +30,7 @@ const EMOJI_RULES = [
   { emoji: '🥝', keywords: ['kiwi'] },
   { emoji: '🥭', keywords: ['mango', 'papaya'] },
   // Unicode has no plum or apricot; the peach stands in for the whole stone-fruit
-  // family, as it did before.
+  // household, as it did before.
   { emoji: '🍑', keywords: ['piersica', 'piersici', 'peach', 'peaches', 'nectarina', 'nectarine', 'caisa', 'caise', 'apricot', 'apricots', 'pruna', 'prune', 'plum', 'plums'] },
   { emoji: '🍒', keywords: ['cirese', 'cireasa', 'cherry', 'cherries', 'visine', 'visina'] },
   { emoji: '🍓', keywords: ['capsuna', 'capsuni', 'strawberry', 'strawberries', 'fragi', 'zmeura', 'raspberry'] },
@@ -167,7 +167,7 @@ const EMOJI_RULES = [
   { emoji: '🔋', keywords: ['baterii', 'baterie', 'battery', 'batteries', 'acumulator'] },
   { emoji: '💡', keywords: ['bec', 'becuri', 'bulb', 'led', 'lanterna', 'flashlight'] },
 
-  // ─── Personal & family ─────────────────────────────────────────────────────
+  // ─── Personal & household ─────────────────────────────────────────────────────
   { emoji: '🩹', keywords: ['vata', 'cotton', 'betisoare de urechi', 'cotton buds', 'plasturi', 'plasture', 'bandage', 'pansament'] },
   { emoji: '💊', keywords: ['medicament', 'pastile', 'vitamine', 'vitamins', 'aspirina', 'paracetamol', 'supliment', 'vitamin', 'vitamina', 'magneziu', 'magnesium'] },
   { emoji: '🌸', keywords: ['absorbante', 'tampoane', 'sanitary pads', 'tampons'] },
@@ -237,7 +237,7 @@ const flatten = (rules: { emoji: string; keywords: string[] }[]) =>
 const MATCHERS = [...flatten(BRAND_RULES), ...flatten(EMOJI_RULES)]
 
 // The list re-renders on every mutation and the set of distinct products a
-// family sees is small, so memoizing turns a few hundred string scans per row
+// household sees is small, so memoizing turns a few hundred string scans per row
 // into one. Keyed by the word bag: two products that reduce to the same words
 // must resolve to the same emoji anyway.
 const cache = new Map<string, string>()

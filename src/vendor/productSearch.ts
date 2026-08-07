@@ -5,9 +5,9 @@
 // diacritics, and collapse whitespace, so "apă" typed with or without accents
 // matches the stored "apa plata 2l dorna".
 //
-// Ranking (see rankSuggestions) puts what THIS family actually buys first and
+// Ranking (see rankSuggestions) puts what THIS household actually buys first and
 // only falls back to the global catalog ordering for products they have never
-// bought. The global signal is a cold-start default; a family's own history is
+// bought. The global signal is a cold-start default; a household's own history is
 // the real answer to "what did they mean by 'apa'".
 //
 // The split of responsibility matters: the catalog is the only SOURCE of
@@ -20,12 +20,12 @@
 export interface ProductSuggestion {
   name: string
   maker: string | null
-  // Global cross-family score from product_catalog (006_product_catalog.sql).
+  // Global cross-household score from product_catalog (006_product_catalog.sql).
   popularity?: number
 }
 
-// One product a family has bought, folded across all its purchase_history rows.
-export interface FamilyProductStat {
+// One product a household has bought, folded across all its purchase_history rows.
+export interface HouseholdProductStat {
   name: string
   maker: string | null
   // Purchase occasions, not units: buying "apa x6" once says less about habit
@@ -55,7 +55,7 @@ export function escapeIlikePattern(text: string): string {
   return text.replace(/[\\%_]/g, (ch) => `\\${ch}`)
 }
 
-// Identity of a product across the catalog and a family's history. Name + maker,
+// Identity of a product across the catalog and a household's history. Name + maker,
 // normalized the same way search_text is, so "Apă Plată"/"Apa Plata" and a null
 // vs empty maker collapse together — matching how the DB's merge key and
 // bump_product_popularity() pair a product with itself.
@@ -66,13 +66,13 @@ export function productKey(name: string | null | undefined, maker: string | null
   return `${normalizeSearchText(String(name ?? ''))}\u0000${normalizeSearchText(String(maker ?? ''))}`
 }
 
-// Fold a family's purchase_history rows into per-product stats.
+// Fold a household's purchase_history rows into per-product stats.
 //
 // purchase_history is pruned to 60 checkouts / 30 days (005_purchase_history.sql), so this
 // is inherently a rolling window of recent behaviour: no decay maths needed, the
 // retention policy already forgets for us.
-export function buildFamilyProductStats(rows: PurchaseHistoryRow[]): Map<string, FamilyProductStat> {
-  const stats = new Map<string, FamilyProductStat>()
+export function buildHouseholdProductStats(rows: PurchaseHistoryRow[]): Map<string, HouseholdProductStat> {
+  const stats = new Map<string, HouseholdProductStat>()
 
   for (const row of rows || []) {
     const name = String(row?.name ?? '').trim()
@@ -102,17 +102,17 @@ export function buildFamilyProductStats(rows: PurchaseHistoryRow[]): Map<string,
   return stats
 }
 
-// Catalog matches this family has bought, recovered without a second query.
+// Catalog matches this household has bought, recovered without a second query.
 //
 // The catalog pool the caller fetches is capped and ordered by GLOBAL
 // popularity, which was harmless while the catalog was a few hundred curated
 // rows: everything that matched fit in the pool, and rankSuggestions could sort
 // it. Once the catalog is imported at scale, a two-character prefix matches
-// thousands of products, and a family's own weekly staple can be crowded out of
+// thousands of products, and a household's own weekly staple can be crowded out of
 // the pool by globally-popular strangers before ranking ever sees it.
 // rankSuggestions can only reorder what it is handed.
 //
-// This is the other half of the pool: the family's stats are already in memory
+// This is the other half of the pool: the household's stats are already in memory
 // and already keyed the same way, so matching them here costs no network.
 //
 // It does make purchase history a SOURCE of suggestions, which the note at the
@@ -128,9 +128,9 @@ export function buildFamilyProductStats(rows: PurchaseHistoryRow[]): Map<string,
 //      modal, so it is a strong "this is a real product" signal. A hand-typed
 //      bare "apa" has no maker and one word and can never be offered back; an
 //      "Apa Plata 2L" / "Dorna" can.
-export function matchFamilyStats(
+export function matchHouseholdStats(
   query: string,
-  familyStats: Map<string, FamilyProductStat>,
+  householdStats: Map<string, HouseholdProductStat>,
   options: { limit: number; requireSpecific?: boolean },
 ): ProductSuggestion[] {
   const needle = normalizeSearchText(String(query ?? ''))
@@ -140,8 +140,8 @@ export function matchFamilyStats(
   const limit = Math.max(0, Number(options?.limit) || 0)
   if (limit === 0) return []
 
-  const matches: FamilyProductStat[] = []
-  for (const stat of familyStats?.values() ?? []) {
+  const matches: HouseholdProductStat[] = []
+  for (const stat of householdStats?.values() ?? []) {
     if (requireSpecific && !stat.maker && stat.name.trim().split(/\s+/).length < 2) continue
     // The same haystack product_search_text() builds, so "contains" means the
     // same thing here as it does in the server's ilike.
@@ -162,7 +162,7 @@ export function matchFamilyStats(
 }
 
 // Order catalog matches, dropping any duplicate product:
-//   1. products this family buys — most often, then most recently
+//   1. products this household buys — most often, then most recently
 //   2. global popularity, for everything they have never bought
 //   3. name, so the order is stable
 //
@@ -171,7 +171,7 @@ export function matchFamilyStats(
 // nothing and can never be suggested. The first candidate for a key wins.
 export function rankSuggestions(
   candidates: ProductSuggestion[],
-  familyStats: Map<string, FamilyProductStat>,
+  householdStats: Map<string, HouseholdProductStat>,
   limit: number,
 ): ProductSuggestion[] {
   const unique = new Map<string, ProductSuggestion>()
@@ -184,8 +184,8 @@ export function rankSuggestions(
 
   return [...unique.values()]
     .sort((a, b) => {
-      const sa = familyStats.get(productKey(a.name, a.maker))
-      const sb = familyStats.get(productKey(b.name, b.maker))
+      const sa = householdStats.get(productKey(a.name, a.maker))
+      const sb = householdStats.get(productKey(b.name, b.maker))
 
       // Bought before beats never bought, whatever the world thinks of it.
       if (Boolean(sa) !== Boolean(sb)) return sa ? -1 : 1

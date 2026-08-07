@@ -85,7 +85,7 @@ export function renderLoadDiff(
     `| imported rows refreshed | ${changed.length.toLocaleString()} |`,
     `| curated or contributed rows, provenance only | ${protectedRows.length.toLocaleString()} |`,
     `| skipped, barcode already taken | ${report.skipped_barcode_conflict.toLocaleString()} |`,
-    `| family-contributed rows collapsed in | ${report.collapsed_scoped.toLocaleString()} |`,
+    `| household-contributed rows collapsed in | ${report.collapsed_scoped.toLocaleString()} |`,
     '',
   ]
 

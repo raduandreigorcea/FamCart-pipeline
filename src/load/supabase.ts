@@ -101,7 +101,7 @@ export async function fetchExistingGlobals(
     const { data, error } = await db
       .from('product_catalog')
       .select('search_text, name, maker, base_weight, add_count, source, barcode')
-      .is('family_id', null)
+      .is('household_id', null)
       .in('search_text', slice)
 
     if (error) throw new Error(`reading existing catalog rows failed: ${error.message}`)

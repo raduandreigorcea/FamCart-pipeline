@@ -43,7 +43,7 @@ To undo a whole import:
 
 ```sql
 delete from public.product_catalog
-where family_id is null and source = 'openfoodfacts' and source_version = 'off-2026-07-01';
+where household_id is null and source = 'openfoodfacts' and source_version = 'off-2026-07-01';
 ```
 
 ## src/vendor/

@@ -22,14 +22,14 @@
   "files": {
     "productSearch.ts": {
       "upstream": "src/lib/productSearch.ts",
-      "sha256": "9772a4308a406d55837e2c6ef5270e9af94a4e50b7a0d95a42a57c191111747f",
-      "vendoredAt": "2026-08-02",
+      "sha256": "3649e40b5f78f2472b19699c25cea891746c50e2b5716b09b17f7ca325572eb5",
+      "vendoredAt": "2026-08-06",
       "why": "normalizeSearchText and productKey decide which candidate rows collapse together before load. A divergent copy would collapse a different set than the database does."
     },
     "productEmoji.ts": {
       "upstream": "src/lib/productEmoji.ts",
-      "sha256": "63547737081332f24bdbbc10f5fb31fd99d05dc4c789106a5ff6c72a27cfa1ce",
-      "vendoredAt": "2026-07-28",
+      "sha256": "3b755610d4add8de1f730f02e0130a9deef65905b4f3693323d0191b6d12b6c7",
+      "vendoredAt": "2026-08-06",
       "why": "getProductEmoji makes the coverage report exact rather than an approximation of the app's keyword table."
     }
   }
